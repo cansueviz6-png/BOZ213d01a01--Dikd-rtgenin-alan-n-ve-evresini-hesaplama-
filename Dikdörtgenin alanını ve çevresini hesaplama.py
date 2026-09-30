@@ -1,13 +1,25 @@
-# Kullanıcıdan kısa ve uzun kenar uzunluklarını alıyoruz
-kisa_kenar = float(input("Lütfen kısa kenar uzunluğunu girin: "))
-uzun_kenar = float(input("Lütfen uzun kenar uzunluğunu girin: "))
+def dikdortgen_hesapla(kisa_kenar, uzun_kenar):
+    cevre = 2 * (kisa_kenar + uzun_kenar)
+    alan = kisa_kenar * uzun_kenar
+    return cevre, alan
 
-# Alan hesaplama
-alan = kisa_kenar * uzun_kenar
 
-# Çevre hesaplama
-cevre = 2 * (kisa_kenar + uzun_kenar)
+def main():
+    try:
+        a = float(input("Dikdörtgenin kısa kenarı: "))
+        b = float(input("Dikdörtgenin uzun kenarı: "))
+    except ValueError:
+        print("Lütfen geçerli bir sayı girin.")
+        return
 
-# Sonuçları ekrana yazdırma
-print(f"Dikdörtgenin Alanı: {alan}")
-print(f"Dikdörtgenin Çevresi: {cevre}")
+    if a <= 0 or b <= 0:
+        print("Kenar uzunlukları pozitif olmalıdır.")
+        return
+
+    cevre, alan = dikdortgen_hesapla(a, b)
+    print(f"Çevre: {cevre}")
+    print(f"Alan: {alan}")
+
+
+main()
+
